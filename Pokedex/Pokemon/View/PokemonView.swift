@@ -58,7 +58,7 @@ class PokemonView: UIView {
             pokemonDescription.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             pokemonDescription.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
-            pokemonDescription.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            pokemonDescription.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 }
