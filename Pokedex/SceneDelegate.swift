@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         
-        let nc = UINavigationController(rootViewController: PokemonTableViewController())
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+        
+        let nc = UINavigationController(rootViewController: PokemonCollectionViewController(collectionViewLayout: layout))
         window?.rootViewController = nc
         window?.makeKeyAndVisible()
     }
