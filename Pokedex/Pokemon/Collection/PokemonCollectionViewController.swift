@@ -34,6 +34,18 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
         self.collectionView!.register(PokemonCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         self.collectionView!.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
+        self.title = "Pokédex"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Table View", style: .plain, target: self, action: #selector(handleTableViewButtonTapped))
+
+    }
+    
+    @objc func handleTableViewButtonTapped() {
+        let nextViewController = PokemonTableViewController()
+        UIView.transition(with: self.navigationController!.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.navigationController?.setViewControllers([nextViewController], animated: false)
+        }, completion: nil)
     }
 
     // MARK: UICollectionViewDataSource

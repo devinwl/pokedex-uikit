@@ -33,6 +33,16 @@ class PokemonTableViewController: UITableViewController {
         tableView.register(PokemonTableViewCell.self, forCellReuseIdentifier: PokemonTableViewCell.description())
         
         self.title = "Pokédex"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Collection View", style: .plain, target: self, action: #selector(handleCollectionViewButtonTapped))
+    }
+    
+    @objc func handleCollectionViewButtonTapped() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
+        let nextViewController = PokemonCollectionViewController(collectionViewLayout: layout)
+        UIView.transition(with: self.navigationController!.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.navigationController?.setViewControllers([nextViewController], animated: false)
+        }, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -18,6 +18,7 @@
 		0354C60E23C92E5600D25A54 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354C60D23C92E5600D25A54 /* PokemonViewController.swift */; };
 		0354C61123CCDE1B00D25A54 /* PokemonCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354C61023CCDE1B00D25A54 /* PokemonCollectionViewController.swift */; };
 		0354C61323CCE30000D25A54 /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0354C61223CCE30000D25A54 /* PokemonCollectionViewCell.swift */; };
+		03EC446B23D0E16600AEF11A /* PokemonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC446A23D0E16600AEF11A /* PokemonNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		0354C60D23C92E5600D25A54 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		0354C61023CCDE1B00D25A54 /* PokemonCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewController.swift; sourceTree = "<group>"; };
 		0354C61223CCE30000D25A54 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
+		03EC446A23D0E16600AEF11A /* PokemonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				0354C60823C92DE000D25A54 /* Model */,
 				0354C60523C92D4B00D25A54 /* View */,
 				0354C60423C92D4500D25A54 /* Table */,
+				03EC446A23D0E16600AEF11A /* PokemonNavigationController.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0354C60C23C92E4600D25A54 /* PokemonView.swift in Sources */,
+				03EC446B23D0E16600AEF11A /* PokemonNavigationController.swift in Sources */,
 				0354C61323CCE30000D25A54 /* PokemonCollectionViewCell.swift in Sources */,
 				0354C60A23C92DFD00D25A54 /* Pokemon.swift in Sources */,
 				0354C5F423C7DFD600D25A54 /* PokemonTableViewController.swift in Sources */,

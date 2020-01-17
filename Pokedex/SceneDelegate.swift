@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
         
-        let nc = UINavigationController(rootViewController: PokemonCollectionViewController(collectionViewLayout: layout))
+        let nc = PokemonNavigationController(rootViewController: PokemonCollectionViewController(collectionViewLayout: layout))
         window?.rootViewController = nc
         window?.makeKeyAndVisible()
     }
