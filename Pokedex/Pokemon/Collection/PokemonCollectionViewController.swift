@@ -27,6 +27,8 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
         
         return list
     }()
+    
+    var selectedRow: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,12 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
         
         let pokemon = allPokemon[indexPath.row]
         pokemonCell.pokemon = pokemon
+        
+        if(indexPath.row == selectedRow) {
+            cell.layer.borderColor = UIColor.systemBlue.cgColor
+        } else {
+            cell.layer.borderColor = UIColor.systemGray5.cgColor
+        }
     
         return cell
     }
@@ -73,9 +81,18 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedRow = indexPath.row
+        collectionView.reloadData()
         
         let pokemon = allPokemon[indexPath.row]
         self.navigationController?.pushViewController(PokemonViewController(pokemon), animated: true)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        selectedRow = -1
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.isSelected = false
     }
     
     // MARK: UICollectionViewDelegateFlowLayout

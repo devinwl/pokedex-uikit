@@ -39,6 +39,10 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         addSubview(label)
         addSubview(smallImage)
         
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.systemGray5.cgColor
+        self.layer.cornerRadius = 5
+        
         NSLayoutConstraint.activate([
             smallImage.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -15),
             smallImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
