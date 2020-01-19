@@ -27,8 +27,6 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
         
         return list
     }()
-    
-    var selectedRow: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +36,7 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
         self.collectionView!.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         
         self.title = "Pokédex"
+        self.collectionView.backgroundColor = .systemBackground
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Table View", style: .plain, target: self, action: #selector(handleTableViewButtonTapped))
 
@@ -62,18 +61,12 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         
         guard let pokemonCell = cell as? PokemonCollectionViewCell else { return cell }
         
         let pokemon = allPokemon[indexPath.row]
         pokemonCell.pokemon = pokemon
-        
-        if(indexPath.row == selectedRow) {
-            cell.layer.borderColor = UIColor.systemBlue.cgColor
-        } else {
-            cell.layer.borderColor = UIColor.systemGray5.cgColor
-        }
     
         return cell
     }
@@ -81,18 +74,8 @@ class PokemonCollectionViewController: UICollectionViewController, UICollectionV
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedRow = indexPath.row
-        collectionView.reloadData()
-        
         let pokemon = allPokemon[indexPath.row]
         self.navigationController?.pushViewController(PokemonViewController(pokemon), animated: true)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        selectedRow = -1
-        
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.isSelected = false
     }
     
     // MARK: UICollectionViewDelegateFlowLayout

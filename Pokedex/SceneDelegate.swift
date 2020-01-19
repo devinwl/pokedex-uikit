@@ -12,16 +12,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
-        
-        let nc = PokemonNavigationController(rootViewController: PokemonCollectionViewController(collectionViewLayout: layout))
-        window?.rootViewController = nc
+                
+        let navigationController = UINavigationController(rootViewController: PokemonTableViewController())
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

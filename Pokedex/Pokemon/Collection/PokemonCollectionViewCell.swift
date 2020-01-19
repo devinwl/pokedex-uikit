@@ -11,13 +11,13 @@ import UIKit
 class PokemonCollectionViewCell: UICollectionViewCell {
     
     var label: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.numberOfLines = 1
-        l.adjustsFontSizeToFitWidth = true
-        l.minimumScaleFactor = 0.5
-        l.textAlignment = .center
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
+        return label
     }()
     
     var smallImage: UIImageView = {
@@ -33,6 +33,16 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.layer.borderColor = UIColor.systemBlue.cgColor
+            } else {
+                self.layer.borderColor = UIColor.systemGray5.cgColor
+           }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -40,7 +50,6 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         addSubview(smallImage)
         
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.systemGray5.cgColor
         self.layer.cornerRadius = 5
         
         NSLayoutConstraint.activate([
